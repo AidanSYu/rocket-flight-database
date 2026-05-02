@@ -1,5 +1,8 @@
 # Rocket Flight Database
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19976138.svg)](https://doi.org/10.5281/zenodo.19976138)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 A public, maintained database of rocket flight ground-truth data with matched aerodynamic-simulator predictions, for model validation and benchmarking.
 
 Each entry pairs a measured flight outcome (peak apogee from on-board instrumentation) with the corresponding predictions from one or more low-fidelity trajectory simulators on the as-flown vehicle. Researchers and tool authors can use the database to evaluate accuracy, identify systematic biases, and compare against alternative codes on identical inputs.
@@ -63,11 +66,11 @@ The underlying flight records and RASAero II reference predictions remain the wo
 
 ## Citation
 
-Cite the database as:
+Cite the database via its Zenodo DOI:
 
-> Yu, A. (2026). *Rocket Flight Database, v1.0*. https://github.com/AidanSYu/rocket-flight-database
+> Yu, A. (2026). *Rocket Flight Database* (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19976138
 
-A `CITATION.cff` is included for automatic citation tooling. A Zenodo DOI will be minted from a tagged release; once available, prefer the DOI over the GitHub URL.
+A `CITATION.cff` is included for automatic citation tooling. The DOI above is the *concept* DOI for the latest release; specific versions have their own version-pinned DOIs available from the Zenodo record.
 
 Always also cite the underlying flight records:
 

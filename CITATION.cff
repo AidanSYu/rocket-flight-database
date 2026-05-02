@@ -1,6 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this dataset, please cite it as below."
+message: "If you use this dataset, please cite it via the Zenodo DOI."
 title: "Rocket Flight Database"
+doi: "10.5281/zenodo.19976138"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19976138"
+    description: "Concept DOI (always points to the latest release)"
 abstract: >-
   A public, maintained database of rocket flight ground-truth data with
   matched aerodynamic-simulator predictions, for model validation and
