@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "Rocket Flight Database"
+abstract: >-
+  A public, maintained database of rocket flight ground-truth data with
+  matched aerodynamic-simulator predictions, for model validation and
+  benchmarking. Each entry pairs a measured peak apogee from on-board
+  instrumentation with predictions from one or more low-fidelity
+  trajectory simulators (currently RASAero II and OpenRocket Plus) on
+  the as-flown vehicle. Released under CC-BY-4.0 with versioned releases
+  on a SemVer schedule.
+type: dataset
+authors:
+  - family-names: Yu
+    given-names: Aidan
+    email: aidansyu@gmail.com
+    affiliation: "Duke University"
+version: "1.0.0"
+date-released: "2026-05-02"
+license: CC-BY-4.0
+keywords:
+  - aerospace
+  - aerodynamics
+  - high-power rocketry
+  - supersonic
+  - validation
+  - rocket simulation
+  - RASAero II
+  - OpenRocket
+url: "https://github.com/AidanSYu/rocket-flight-database"
+references:
+  - type: data
+    title: "RASAero II Comparisons with Altitude Data"
+    authors:
+      - family-names: Rogers
+        given-names: Charles E.
+    url: "https://www.rasaero.com/comparisons-alt.htm"
+    notes: "Authoritative source for measured apogees and RASAero II reference predictions used in this corpus."
+  - type: report
+    title: "RASAero II Comparison with MESOS 293K Flight Data, Rev. B"
+    authors:
+      - family-names: Rogers
+        given-names: Charles E.
+    url: "https://www.rasaero.com/dloads/RASAero%20II%20Comparison%20with%20MESOS%20293K%20Flight%20Data%20-%20Rev%20B.pdf"
+    notes: "Authoritative source for the MESOS 293K (flight 25) entry in this corpus."

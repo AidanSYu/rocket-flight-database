@@ -1,0 +1,17 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# RASAero II artifacts (do not redistribute per source disclosure)
+*.CDX1
+*.cdx1
+*.ALX1
+*.alx1
+*.eng
+
+# Build outputs
+*.pdf
+!docs/*.pdf
