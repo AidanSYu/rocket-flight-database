@@ -9,18 +9,24 @@ Each entry pairs a measured flight outcome (peak apogee from on-board instrument
 
 The database currently includes RASAero II and [OpenRocket Plus](https://github.com/AidanSYu/openrocketsupersonic) as the matched simulators. Additional simulators may be added in future releases.
 
-## Current contents (v1.0)
+## Current contents (v1.2)
 
-The first release includes 25 flights spanning Mach 0.54 to Mach 4.33 and apogee altitudes from 3,577 ft to 293,488 ft, drawn from the public flight-comparison set published by Charles E. Rogers (RASAero II author).
+Release v1.2 includes 28 flights spanning Mach 0.54 to Mach 7.22 and apogee altitudes from 3,577 ft to 897,638 ft (273.6 km).
 
-Aggregate accuracy at v1.0:
+The first 25 flights are drawn from the public flight-comparison set published by Charles E. Rogers (RASAero II author). Flight 26 is the Black Brant V VB single-stage sounding rocket flight AAF-VB-32 (Churchill, 3 March 1971), sourced from DTIC AD0733141. Flights 27 and 28 are two Nike-Deacon two-stage flights from NACA TN 3739 (Heitkotter 1956, Wallops Island), beacon-tracked to 356,000 ft and 350,000 ft respectively. RASAero II was not run on flights 26-28 — these vehicles pre-date RASAero II and no `.CDX1` files exist; the RASAero comparison columns are therefore blank for those rows.
 
-| Predictor | Mean \|err\| | Within ±5% | Within ±10% |
-|---|---:|---:|---:|
-| RASAero II | 5.26% | 13 / 25 | 22 / 25 |
-| OpenRocket Plus | 4.49% | 15 / 25 | 25 / 25 |
+Aggregate accuracy at v1.2:
 
-These aggregates apply to the v1.0 contents and will update with each release.
+| Predictor | Flights | Mean \|err\| | Within ±5% | Within ±10% |
+|---|---:|---:|---:|---:|
+| RASAero II | 25 | 5.34% | 13 / 25 | 22 / 25 |
+| OpenRocket Plus | 28 | 4.32% | 17 / 28 | 28 / 28 |
+
+The OpenRocket Plus aggregate counts all 28 flights including the Black Brant V VB and the two Nike-Deacon flights. The RASAero II aggregate is over the 25 flights that have RASAero comparisons; flights 26-28 do not contribute to the RASAero II row.
+
+**Inclusion criterion.** This database admits only flights where the OpenRocket Plus prediction lies within ±10% of the measured apogee. Flights that produce predictions outside that band are not committed to the public corpus; the underlying issue is investigated in the OpenRocket Plus repository before any re-attempt at admission. Three additional historical-solid candidates (Nike-Cajun University-of-Michigan sounding flight, the Nike-Apache 1965 nine-flight set from NASA X-721-67-103, and the Nike-Cajun Hurricane variant) were prepared and simulated for v1.2 but exceeded ±10% (Cajun UM at +16.6%; Nike-Apache 1965 set at +24% to +38%; Hurricane failed integration). They remain on disk in the OpenRocket Plus repository as deferred candidates pending model-side investigation of the supersonic two-stage drag/coast bias.
+
+These aggregates apply to the v1.2 contents and will update with each release.
 
 ## Schema
 
@@ -35,11 +41,11 @@ A single CSV ([`flight_comparison.csv`](flight_comparison.csv)) with one row per
 | `peak_mach` | Peak Mach number reached during the flight (predicted by OpenRocket Plus on the imported geometry) |
 | `launch_site_alt_ft` | Launch site altitude above mean sea level, feet |
 | `apogee_real_ft` | Measured peak altitude above ground level, feet, from on-board instrumentation |
-| `apogee_rasaero_ft` | RASAero II predicted apogee for the as-flown vehicle, feet |
+| `apogee_rasaero_ft` | RASAero II predicted apogee for the as-flown vehicle, feet. Blank if RASAero II was not run on this vehicle (see flight 26 note above). |
 | `apogee_thiswork_ft` | OpenRocket Plus predicted apogee for the as-flown vehicle, feet |
-| `err_rasaero_pct` | Signed RASAero II error: 100 × (rasaero − real) / real |
+| `err_rasaero_pct` | Signed RASAero II error: 100 × (rasaero − real) / real. Blank if `apogee_rasaero_ft` is blank. |
 | `err_thiswork_pct` | Signed OpenRocket Plus error: 100 × (thiswork − real) / real |
-| `abs_err_delta_pp` | Absolute-error delta, percentage points: \|err_rasaero\| − \|err_thiswork\|. Positive means OpenRocket Plus is closer to the measured apogee on this flight |
+| `abs_err_delta_pp` | Absolute-error delta, percentage points: \|err_rasaero\| − \|err_thiswork\|. Positive means OpenRocket Plus is closer to the measured apogee on this flight. Blank if RASAero columns are blank. |
 | `flight_data_type` | Instrumentation that produced the measured apogee (Barometric Altimeter, GPS, Optical Track, Integrated Accelerometer) |
 | `data_source` | Provenance pointer for the underlying flight record and reference prediction |
 
@@ -47,12 +53,16 @@ The schema may grow in future releases (altimeter make/model, launch site identi
 
 ## Source disclosure
 
-Measured apogees, motor configurations, vehicle diameters, and RASAero II reference predictions are sourced from:
+Measured apogees, motor configurations, vehicle diameters, and RASAero II reference predictions for flights 1-25 are sourced from:
 
 - *RASAero II Comparisons with Altitude Data* (Charles E. Rogers), <https://www.rasaero.com/comparisons-alt.htm>
 - *RASAero II Comparison with MESOS 293K Flight Data, Rev. B* (Rogers), <https://www.rasaero.com/dloads/RASAero%20II%20Comparison%20with%20MESOS%20293K%20Flight%20Data%20-%20Rev%20B.pdf>
 
-The corresponding RASAero `.CDX1` vehicle definition files are obtainable from a standard RASAero II installation and are **not redistributed** in this repository. The MESOS 293K vehicle file was provided by Rogers and is similarly not redistributed.
+Flight 26 (Black Brant V VB, AAF-VB-32) is sourced from:
+
+- *Black Brant Operations Report — AAF-VB-32, Churchill 3 March 1971*, NRC Canada / Space Research Facilities Branch, October 1971. DTIC accession AD0733141.
+
+The corresponding RASAero `.CDX1` vehicle definition files for flights 1-25 are obtainable from a standard RASAero II installation and are **not redistributed** in this repository. The MESOS 293K vehicle file was provided by Rogers and is similarly not redistributed. The OpenRocket Plus model for flight 26 is auto-generated from a YAML audit of the source PDF; the build script and audit YAML live in the OpenRocket Plus repository at `paper/data/ork/sounding_rockets/` and trace every dimension, mass, and motor parameter to a specific page or table of AD0733141.
 
 This repository contains only the matched-comparison artifact derived from those sources, plus the OpenRocket Plus predictions. To reproduce any row, see [`docs/reproducibility.md`](docs/reproducibility.md).
 
@@ -68,7 +78,7 @@ The underlying flight records and RASAero II reference predictions remain the wo
 
 Cite the database via its Zenodo DOI:
 
-> Yu, A. (2026). *Rocket Flight Database* (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19976138
+> Yu, A. (2026). *Rocket Flight Database* (v1.2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19976138
 
 A `CITATION.cff` is included for automatic citation tooling. The DOI above is the *concept* DOI for the latest release; specific versions have their own version-pinned DOIs available from the Zenodo record.
 

@@ -20,8 +20,8 @@ authors:
     given-names: Aidan
     email: aidansyu@gmail.com
     affiliation: "Duke University"
-version: "1.0.0"
-date-released: "2026-05-02"
+version: "1.2.0"
+date-released: "2026-05-11"
 license: CC-BY-4.0
 keywords:
   - aerospace
@@ -40,7 +40,7 @@ references:
       - family-names: Rogers
         given-names: Charles E.
     url: "https://www.rasaero.com/comparisons-alt.htm"
-    notes: "Authoritative source for measured apogees and RASAero II reference predictions used in this corpus."
+    notes: "Authoritative source for measured apogees and RASAero II reference predictions for flights 1-24 in this corpus."
   - type: report
     title: "RASAero II Comparison with MESOS 293K Flight Data, Rev. B"
     authors:
@@ -48,3 +48,8 @@ references:
         given-names: Charles E.
     url: "https://www.rasaero.com/dloads/RASAero%20II%20Comparison%20with%20MESOS%20293K%20Flight%20Data%20-%20Rev%20B.pdf"
     notes: "Authoritative source for the MESOS 293K (flight 25) entry in this corpus."
+  - type: report
+    title: "Black Brant Operations Report — AAF-VB-32, Churchill 3 March 1971"
+    institution: "NRC Canada / Space Research Facilities Branch"
+    year: 1971
+    notes: "Authoritative source for the Black Brant V VB (flight 26) entry in this corpus. DTIC accession AD0733141."
