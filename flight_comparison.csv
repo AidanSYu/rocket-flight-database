@@ -23,7 +23,7 @@ flight_id,vehicle_name,motor,diameter_in,peak_mach,launch_site_alt_ft,apogee_rea
 22,AeroPac 104K Two-Stage,N1048 / M685W (AT),4.05/3.08,3.04,3750,104659,113786,103602,8.72,-1.0,7.72,GPS,Rogers RASAero II Comparisons
 23,Don't Debate This,N5800 (CTI),3.92,3.04,3750,56573,62308,53150,10.14,-6.1,4.04,Barometric Altimeter,Rogers RASAero II Comparisons
 24,Qu8k,Q18000 (Deville-EX),8.00,3.46,3750,121478,116254,119187,-4.30,-1.9,2.40,Integrated Accelerometer,Rogers RASAero II Comparisons
-25,MESOS 293K,O4374 / M787 (KIP-EX),4.68/3.15,4.33,3910,293488,289789,291601,-1.26,-0.6,0.66,GPS,Rogers RASAero II Comparisons
+25,MESOS 293K,O4374 / M787 (KIP-EX),4.68/3.15,4.33,3910,293488,289789,273070,-1.26,-7.0,-5.74,GPS,Rogers RASAero II Comparisons
 26,Black Brant V VB (AAF-VB-32),26KS20000 (Bristol),16.93,7.22,98,897638,,835071,,-6.97,,Radar Track,DTIC AD0733141 (Bristol/NRC Churchill 1971)
 27,Nike-Deacon flight 1,Nike M5 / Deacon ABL,16.5/6.5,4.96,0,356000,,352210,,-1.06,,Radar Beacon Track (precision ~+/-1k ft),NACA TN 3739 p.5-6 (Heitkotter 1956 Wallops 1955)
 28,Nike-Deacon flight 2,Nike M5 / Deacon ABL,16.5/6.5,5.08,0,350000,,346902,,-0.89,,Radar Beacon Track (intermittent ~+/-5k ft),NACA TN 3739 p.5-6 (Heitkotter 1956 Wallops 1955)

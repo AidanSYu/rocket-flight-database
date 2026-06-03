@@ -20,7 +20,7 @@ Aggregate accuracy at v1.2:
 | Predictor | Flights | Mean \|err\| | Within ±5% | Within ±10% |
 |---|---:|---:|---:|---:|
 | RASAero II | 25 | 5.34% | 13 / 25 | 22 / 25 |
-| OpenRocket Plus | 28 | 4.32% | 17 / 28 | 28 / 28 |
+| OpenRocket Plus | 28 | 4.55% | 16 / 28 | 28 / 28 |
 
 The OpenRocket Plus aggregate counts all 28 flights including the Black Brant V VB and the two Nike-Deacon flights. The RASAero II aggregate is over the 25 flights that have RASAero comparisons; flights 26-28 do not contribute to the RASAero II row.
 
